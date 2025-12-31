@@ -30,16 +30,7 @@ pipeline {
 
         stage('Build Docker Image on Docker Server') {
             steps {
-                sshagent(['docker-ssh']) {
-                    sh '''
-                    ssh -o StrictHostKeyChecking=no ubuntu@100.25.43.216 "
-                    rm -rf ~/static-site &&
-                    git clone ${GIT_URL} static-site &&
-                    cd static-site &&
-                    docker build -t static-site:latest .
-                    "
-                    '''
-                }
+               
             }
         }
     }
