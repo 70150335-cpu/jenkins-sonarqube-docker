@@ -26,12 +26,12 @@ pipeline {
             }
         }
 
-        stage('Build Docker Image on Docker Server') {
+       stage('Build Docker Image on Docker Server') {
     steps {
         sh '''
         ssh -i /var/lib/jenkins/.ssh/docker_key \
         -o StrictHostKeyChecking=no \
-        ubuntu@<DOCKER_PUBLIC_IP> "
+        ubuntu@100.25.43.216 "
         rm -rf ~/static-site &&
         git clone ${GIT_URL} static-site &&
         cd static-site &&
@@ -40,6 +40,7 @@ pipeline {
         '''
     }
 }
+
 
      
 
